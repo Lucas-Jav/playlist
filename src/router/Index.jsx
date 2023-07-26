@@ -2,12 +2,12 @@ import {
     createBrowserRouter,
 } from "react-router-dom";
 
-import App from '../App.jsx';
+import Home from "../views/Home";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App />,
+        element: <Home />,
     }
 ])
 

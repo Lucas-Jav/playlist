@@ -1,3 +1,4 @@
+import logotiao from '../../static/images/logo.png';
 
 function Header() {
     return (
@@ -9,3 +10,5 @@ function Header() {
         </header>
     )
 }
+
+export default Header;

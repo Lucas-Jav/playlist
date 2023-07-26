@@ -1,26 +1,15 @@
 import { useState } from 'react';
-import logotiao from './static/images/logo.png';
+import Header from './components/header/Header';
+import router from './router/Index';
+import { RouterProvider } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-    <header>
-      <img src={logotiao} alt="logo-tiao" loading='lazy'/>
-      <nav>
-        
-      </nav>
-    </header>
-      <section className='container__all'>
-
-      <div className="modal__estatico">
-        <main>
-          
-        </main>
-      </div>
-
-      </section>
+      <Header />
+      <RouterProvider router={router} />
     </>
   )
 }
