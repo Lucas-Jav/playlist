@@ -8,8 +8,5 @@ const api = axios.create({
     }
 })
 
-api.get('/album').then((res) => {
-    console.log(res.data.data[0].tracks)
-})
 
 export default api;

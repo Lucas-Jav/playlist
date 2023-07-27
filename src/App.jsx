@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import Header from './components/header/Header';
-import router from './router/Index';
+import router from './router/Index.jsx';
 import { RouterProvider } from "react-router-dom";
 
 function App() {
@@ -8,7 +7,6 @@ function App() {
 
   return (
     <>
-      <Header />
       <RouterProvider router={router} />
     </>
   )
