@@ -17,9 +17,15 @@ function FormAlbumAdd() {
             const response = await api.post('/album', {name, year});
             console.log(response.data);
             setSucess("Álbum adicionado!")
+            setTimeout(() => {
+                setSucess(null)
+            }, 4000)
         } catch (error) {
             console.error('Erro na requisição:', error);
             setError("Erro na requisição!");
+            setTimeout(() => {
+                setError(null)
+            }, 4000)
         }
 
         setName('');
@@ -29,9 +35,15 @@ function FormAlbumAdd() {
     return (
         <>
             {error ? (
-                <p className="error">{error}</p>
+                <div>
+                    <p className="error">{error}</p>
+                    <br />
+                </div>
             ): sucess ? (
-                <p className="sucess">{sucess}</p>
+                <div>
+                    <p className="sucess">{sucess}</p>
+                    <br />
+                </div>
             ) : (
                 null
             )}
