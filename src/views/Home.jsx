@@ -4,6 +4,8 @@ import api from "../api/index";
 
 function Home() {
     const [lista, addList] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -21,9 +23,6 @@ function Home() {
         fetchData();
     }, []);
 
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
     useEffect(() => {
         // Função para fazer a chamada à API usando Axios
         const fetchData = async () => {
@@ -34,7 +33,7 @@ function Home() {
                 addList(response); // Supondo que a API retorna uma lista de dados
                 setLoading(false); // Defina o estado de loading como false quando os dados forem obtidos
             } catch (error) {
-                setError('Erro ao buscar os dados.');
+                setError('Erro ao buscar os dados!');
                 setLoading(false); // Mesmo em caso de erro, defina o estado de loading como false
             }
         };
@@ -62,7 +61,7 @@ function Home() {
                                 </div>
                             </div>
                         ) : error ? (
-                            <p>{error}</p>
+                            <p className='error'>{error}</p>
                         ) : (
                             <div className="list__">
 

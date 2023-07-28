@@ -1,0 +1,25 @@
+@media (max-width: 1440px) {
+    section.container__all {
+        padding: 40px 30px;
+    }
+
+    div.modal__estatico {
+        width: 100%;
+    }
+
+    .line__ input {
+        width: 400px !important;
+    }
+}
+
+@media (max-width: 1096px) {
+    form.add__Album {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 526px) {
+    .line__ input {
+        width: auto !important;
+    }
+}
