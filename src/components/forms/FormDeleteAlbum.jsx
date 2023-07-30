@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "../../static/css/forms.css";
 import api from "../../api";
-import { useNavigate } from "react-router-dom";
 
 
 function FormDeleteAlbum() {
@@ -10,7 +9,6 @@ function FormDeleteAlbum() {
     const [error, setError] = useState(null);
     const [sucess, setSucess] = useState(null);
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
@@ -58,8 +56,8 @@ function FormDeleteAlbum() {
 
         setSelectedOption('DEFAULT');
         setTimeout(() => {
-            navigate("/");
-        }, 3000);
+            window.location.reload();
+        }, 3500);
     }
 
     return (

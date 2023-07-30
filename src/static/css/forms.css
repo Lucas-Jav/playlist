@@ -5,7 +5,7 @@ h1 {
 
 form.add__Album {
     width: 100%;
-    padding: 10px 0px;
+    padding: 5px 0px 20px 0px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -45,18 +45,20 @@ button[type="submit"] {
     height: 25px;
     border-radius: 4px;
     padding: 5px 15px;
-    border: 1px solid;
+    border: 1px solid #008000;
     background-color: #fff;
+    color: #008000;
     font-weight: 600;
 }
 
 button[type="submit"]:hover {
     transition: .5s;
-    background-color: #000;
+    background-color: #008000;
     color: #fff;
 }
 
 .delete {
+    border: 1px solid #ff0000 !important;
     background-color:  #fff !important;
     color: #ff0000  !important;
 }
@@ -67,6 +69,7 @@ button[type="submit"]:hover {
 }
 
 select.exclude__album {
+    width: 150px;
     height: 35px;
     border-radius: 4px;
     padding: 5px 15px;

@@ -1,14 +1,12 @@
 import { useState } from "react";
 import "../../static/css/forms.css";
 import api from "../../api";
-import { useNavigate } from "react-router-dom";
 
 function FormAlbumAdd() {
     const [name, setName] = useState('');
     const [year, setYear] = useState('');
     const [error, setError] = useState(null);
     const [sucess, setSucess] = useState(null);
-    const navigate = useNavigate();
 
     const resetForm = () => {
         setName('');
@@ -35,7 +33,7 @@ function FormAlbumAdd() {
 
         resetForm();
         setTimeout(() => {
-            navigate("/");
+            window.location.reload();
         }, 3500);
     }
 

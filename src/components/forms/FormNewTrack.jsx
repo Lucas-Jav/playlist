@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import "../../static/css/forms.css";
 import api from "../../api";
-import { useNavigate } from "react-router-dom";
-
 
 function FormNewTrack() {
     const [selectedOption, setSelectedOption] = useState('DEFAULT');
@@ -13,7 +11,6 @@ function FormNewTrack() {
     const [title, setTitle] = useState('');
     const [number, setNumber] = useState('');
     const [duration, setDuration] = useState('');
-    const navigate = useNavigate();
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
@@ -72,7 +69,7 @@ function FormNewTrack() {
 
         resetForm();
         setTimeout(() => {
-            navigate("/");
+            window.location.reload();
         }, 3500);
     }
 
