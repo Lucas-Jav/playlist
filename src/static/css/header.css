@@ -1,7 +1,7 @@
 header {
     height: 100px;
     width: 100%;
-    padding: 15px;
+    padding: 15px 30px;
     background-color: #fff;
     display: flex;
     flex-direction: row;
@@ -9,11 +9,20 @@ header {
     justify-content: space-between;
 }
 
-header img {
+header a img {
     height: 80%;
 }
 
 header nav {
     display: flex;
     gap: 10px;
+}
+
+header nav a {
+    font-weight: 600;
+    transition: .5s;
+}
+
+header nav a:hover {
+    border-bottom: 1px solid;
 }

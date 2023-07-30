@@ -5,7 +5,7 @@ import "../../static/css/header.css";
 function Header() {
     return (
         <header>
-            <img src={logotiao} alt="logo-tiao" loading='lazy'/>
+            <Link to="/"><img src={logotiao} alt="logo-tiao" loading='lazy'/></Link>
             <nav>
                 <Link to="/">Lista De Álbuns</Link>
                 <Link to="/edit">Ações</Link>
