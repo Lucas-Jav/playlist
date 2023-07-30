@@ -1,6 +1,6 @@
 import Header from "../components/header/Header";
 import FormAlbumAdd from "../components/forms/FormNewAlbum";
-
+import FormDeleteAlbum from "../components/forms/FormDeleteAlbum";
 
 function Albuns() {
     
@@ -12,6 +12,7 @@ function Albuns() {
                 <div className="modal__estatico">
                     <main>
                         <FormAlbumAdd />
+                        <FormDeleteAlbum />
                     </main>
                 </div>
             </section>

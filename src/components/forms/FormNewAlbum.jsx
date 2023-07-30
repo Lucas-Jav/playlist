@@ -11,8 +11,6 @@ function FormAlbumAdd() {
     const addAlbum = async (e) => {
         e.preventDefault();
 
-        console.log({name,year})
-
         try {
             const response = await api.post('/album', {name, year});
             console.log(response.data);
