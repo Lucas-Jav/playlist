@@ -1,0 +1,67 @@
+@media (max-width: 1440px) {
+    section.container__all {
+        padding: 40px 30px;
+    }
+
+    div.modal__estatico {
+        width: 100%;
+    }
+
+    .line__ input {
+        width: 400px !important;
+    }
+}
+
+@media (max-width: 1096px) {
+    form.add__Album {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 526px) {
+    .line__ input {
+        width: auto !important;
+    }
+
+    div.search {
+        flex-wrap: wrap;
+    }
+
+    input.searchSome {
+        width: 100%;
+    }
+
+    button.searchBtn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 425px) {
+    header a img {
+        width: 100px;
+    }
+
+    section.container__all {
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 375px) {
+    header {
+        height: max-content !important;
+        flex-direction: column !important;
+        gap: 15px;
+    }
+
+    header nav {
+        flex-direction: column;
+    }
+
+    header nav a {
+        text-align: center;
+    }
+
+    li .init {
+        gap: 20px;
+    }
+}
