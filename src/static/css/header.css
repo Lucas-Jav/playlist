@@ -1,5 +1,5 @@
 header {
-    height: 100px;
+    height: 10vh;
     width: 100%;
     padding: 15px 30px;
     background-color: #fff;
@@ -21,6 +21,7 @@ header nav {
 header nav a {
     font-weight: 600;
     transition: .5s;
+    border-bottom: 1px solid transparent; 
 }
 
 header nav a:hover {

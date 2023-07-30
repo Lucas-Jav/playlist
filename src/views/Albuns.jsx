@@ -11,7 +11,7 @@ function Albuns() {
             <Header />
             <section className='container__all'>
                 <div className="modal__estatico">
-                    <main>
+                    <main className="mainForms">
                         <FormAlbumAdd />
                         <FormDeleteAlbum />
                         <FormNewTrack />
