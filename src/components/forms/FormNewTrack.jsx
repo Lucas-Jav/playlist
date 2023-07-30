@@ -25,7 +25,6 @@ function FormNewTrack() {
 
 
     useEffect(() => {
-        // Função para fazer a chamada à API usando Axios
         const fetchData = async () => {
             try {
                 const response = await api.get('/album').then((res) => {
@@ -39,7 +38,7 @@ function FormNewTrack() {
             }
         };
 
-        fetchData(); // Chama a função de busca ao montar o componente
+        fetchData();
     }, []);
 
     const addTrack = async (e) => {

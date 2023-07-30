@@ -16,7 +16,6 @@ function FormDeleteAlbum() {
 
 
     useEffect(() => {
-        // Função para fazer a chamada à API usando Axios
         const fetchData = async () => {
             try {
                 const response = await api.get('/album').then((res) => {
@@ -30,7 +29,7 @@ function FormDeleteAlbum() {
             }
         };
 
-        fetchData(); // Chama a função de busca ao montar o componente
+        fetchData();
     }, []);
 
     const deleteAlbum = async (e) => {

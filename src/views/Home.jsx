@@ -30,16 +30,28 @@ function Home() {
                 const response = await api.get('/album').then((res) => {
                     return res.data.data;
                 });
-                addList(response); // Supondo que a API retorna uma lista de dados
-                setLoading(false); // Defina o estado de loading como false quando os dados forem obtidos
+                
+                addList(response);
+                setLoading(false); 
             } catch (error) {
                 setError('Erro ao buscar os dados!');
-                setLoading(false); // Mesmo em caso de erro, defina o estado de loading como false
+                setLoading(false); 
             }
         };
 
-        fetchData(); // Chama a função de busca ao montar o componente
+        fetchData(); 
     }, []);
+
+
+    const [searchTerm, setSearchTerm] = useState("");
+    const filteredData = lista.filter((album) =>
+        album.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        album.tracks.some((track) => track.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
 
     return (
         <>
@@ -48,6 +60,18 @@ function Home() {
 
                 <div className="modal__estatico">
                     <main>
+                        <div className="search">
+                            <input
+                                type="text"
+                                placeholder="Digite o nome do álbum ou da musica!"
+                                value={searchTerm}
+                                onChange={handleSearchChange}
+                                className='searchSome'
+                            />
+                            <button className='searchBtn'>Pesquisar</button>
+
+                        </div>
+                        
 
                         {loading ? (
                             <div className="loading">
@@ -65,10 +89,10 @@ function Home() {
                         ) : (
                             <div className="list__">
 
-                                {lista.map(item => (
-                                    <div className="albuns" key={item.id}>
-                                        <h3>Álbum: {item.name}, {item.year}</h3>
-                                        <ul className="traks">
+                                {filteredData.map((album) => (
+                                    <div key={album.id} className='albuns'>
+                                        <h3>Álbum: {album.name}, {album.year}</h3>
+                                        <ul className='traks'>
                                             <li>
                                                 <div className="init">
                                                     <span className='spanNumber'><strong>Nº</strong></span>
@@ -76,16 +100,18 @@ function Home() {
                                                 </div>
                                                 <span className='spanDuration'><strong>Duração</strong></span>
                                             </li>
-                                            {item.tracks.map((music, key) => (
-                                                <li key={key}>
+
+                                            {album.tracks.map((track) => (
+                                                <li key={track.id}>
                                                     <div className="init">
-                                                        <span className='spanNumber'>{music.number}</span>
-                                                        <span>{music.title}</span>
+                                                        <span className="spanNumber">{track.number}</span>
+                                                        <span>{track.title}</span>
                                                     </div>
-                                                    <span className='spanDuration'>{Math.floor(music.duration / 60)}:{Math.floor(music.duration % 60).toString().padStart(2, '0')}</span>
+                                                    <span className="spanDuration">
+                                                        {Math.floor(track.duration / 60)}:{Math.floor(track.duration % 60).toString().padStart(2, '0')}
+                                                    </span>
                                                 </li>
-                                            ))
-                                            }
+                                            ))}
                                         </ul>
                                     </div>
                                 ))}
