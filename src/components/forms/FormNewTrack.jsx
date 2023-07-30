@@ -4,17 +4,27 @@ import api from "../../api";
 import { useNavigate } from "react-router-dom";
 
 
-function FormDeleteAlbum() {
+function FormNewTrack() {
     const [selectedOption, setSelectedOption] = useState('DEFAULT');
     const [lista, addList] = useState([]);
     const [error, setError] = useState(null);
     const [sucess, setSucess] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [title, setTitle] = useState('');
+    const [number, setNumber] = useState('');
+    const [duration, setDuration] = useState('');
     const navigate = useNavigate();
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
     };
+
+    const resetForm = () => {
+        setNumber('');
+        setSelectedOption('DEFAULT');
+        setTitle('');
+        setDuration('')
+    }
 
 
     useEffect(() => {
@@ -35,31 +45,35 @@ function FormDeleteAlbum() {
         fetchData(); // Chama a função de busca ao montar o componente
     }, []);
 
-    const deleteAlbum = async (e) => {
+    const addTrack = async (e) => {
         e.preventDefault();
 
         if (selectedOption != 'DEFAULT') {
             try {
-                await api.delete(`/album/${selectedOption}`);
-                setSucess("Álbum excluido com sucesso!");
+                await api.post('/track', {
+                    album_id: selectedOption,
+                    number: number,
+                    title: title,
+                    duration: duration
+                });
 
+                setSucess("Faixa adicionada ao álbum!");
                 setTimeout(() => {
                     setSucess(null);
                 }, 3000);
-            } catch(error) {
-                console.error(error);
-                setError("Erro ao excluir álbum!");
-                
+
+            } catch (error) {
+                setError("Erro ao adicionar faixa ao álbum!");
                 setTimeout(() => {
                     setError(null);
                 }, 3000);
             }
         }
 
-        setSelectedOption('DEFAULT');
+        resetForm();
         setTimeout(() => {
             navigate("/");
-        }, 3000);
+        }, 3500);
     }
 
     return (
@@ -78,8 +92,8 @@ function FormDeleteAlbum() {
                 null
             )}
 
-            <h1>Excluir Álbum</h1>
-            <form className="add__Album" onSubmit={deleteAlbum}>
+            <h1>Adicionar Faixa</h1>
+            <form className="add__Album" onSubmit={addTrack}>
                 <div className="line__">
                     <label htmlFor="album">Álbum:</label>
                     <select 
@@ -87,7 +101,7 @@ function FormDeleteAlbum() {
                     required={true} 
                     onChange={handleOptionChange} 
                     className="exclude__album" 
-                    title="Escolha o álbum que deseja excluir!">
+                    title="Escolha o álbum que deseja adicionar uma nova faixa!">
 
                         <option disabled={true} value="DEFAULT">Selecionar</option>
                         {
@@ -103,13 +117,31 @@ function FormDeleteAlbum() {
                         }
                     </select>
                 </div>
+
+                <div className="line__">
+                    <label htmlFor="number">Número da faixa:</label>
+                    <input type="number"  value={number} required={true}
+                        onChange={e => setNumber(e.target.value)} title="Insira o número da faixa!"/>
+                </div>
+
+                <div className="line__">
+                    <label htmlFor="title">Título:</label>
+                    <input type="text" value={title} required={true}
+                        onChange={e => setTitle(e.target.value)} title="Insira o título da faixa!" />
+                </div>
+
+                <div className="line__">
+                    <label htmlFor="duration">Duração:</label>
+                    <input type="number" value={duration} required={true}
+                        onChange={e => setDuration(e.target.value)} title="Insira a duração da faixa em segundos!" />
+                </div>
                 
                 <div className="btn__gp">
-                    <button type="submit" className="delete">Excluir</button>
+                    <button type="submit">Adicionar</button>
                 </div>
             </form>
         </>
     )
 }
 
-export default FormDeleteAlbum;
+export default FormNewTrack;

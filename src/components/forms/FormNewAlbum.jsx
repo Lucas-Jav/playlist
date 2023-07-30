@@ -1,12 +1,19 @@
 import { useState } from "react";
 import "../../static/css/forms.css";
 import api from "../../api";
+import { useNavigate } from "react-router-dom";
 
 function FormAlbumAdd() {
     const [name, setName] = useState('');
     const [year, setYear] = useState('');
     const [error, setError] = useState(null);
     const [sucess, setSucess] = useState(null);
+    const navigate = useNavigate();
+
+    const resetForm = () => {
+        setName('');
+        setYear('');
+    }
 
     const addAlbum = async (e) => {
         e.preventDefault();
@@ -17,17 +24,19 @@ function FormAlbumAdd() {
             setSucess("Álbum adicionado!")
             setTimeout(() => {
                 setSucess(null)
-            }, 4000)
+            }, 3000)
         } catch (error) {
             console.error('Erro na requisição:', error);
             setError("Erro na requisição!");
             setTimeout(() => {
                 setError(null)
-            }, 4000)
+            }, 3000)
         }
 
-        setName('');
-        setYear('');
+        resetForm();
+        setTimeout(() => {
+            navigate("/");
+        }, 3500);
     }
 
     return (

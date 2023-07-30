@@ -127,6 +127,7 @@ div.loading {
     text-align: center;
     font-weight: 600;
     border: 1px solid #ff0000;
+    background-color: #fff;
     border-radius: 6px;
 }
 
@@ -135,6 +136,7 @@ div.loading {
     font-size: 1.5rem;
     padding: 10px;
     text-align: center;
+    background-color: #fff;
     font-weight: 600;
     border: 1px solid #02fc02;
     border-radius: 6px;
@@ -156,6 +158,7 @@ div.modal__estatico {
     height: 80vh;
     background-color: #ffffff9f;
     border-radius: 5px;
+    overflow-y: scroll;
 }
 
 

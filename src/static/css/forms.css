@@ -7,6 +7,7 @@ form.add__Album {
     width: 100%;
     padding: 10px 0px;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     border-bottom: 1px solid #000000a1;
     border-radius: 4px;

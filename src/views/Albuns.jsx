@@ -1,6 +1,7 @@
 import Header from "../components/header/Header";
 import FormAlbumAdd from "../components/forms/FormNewAlbum";
 import FormDeleteAlbum from "../components/forms/FormDeleteAlbum";
+import FormNewTrack from "../components/forms/FormNewTrack";
 
 function Albuns() {
     
@@ -13,6 +14,7 @@ function Albuns() {
                     <main>
                         <FormAlbumAdd />
                         <FormDeleteAlbum />
+                        <FormNewTrack />
                     </main>
                 </div>
             </section>
