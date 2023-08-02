@@ -149,6 +149,8 @@ section.container__all {
     background-image: url(/src/static/images/background.png);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    background-position-x: center;
     display: flex;
     justify-content: center;
 }
